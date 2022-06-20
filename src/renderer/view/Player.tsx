@@ -5,12 +5,17 @@ import { Track } from "renderer/interfaces"
 
 export const Player = () => {
     const track = useSelector((state: any) => {
-        console.log(state)
        return state.track as Track[]
     })
+    const handleButton = () => {
+        window.electron.ipcRenderer.showHz()
+        console.log('govno')
+    }
+
 
     return (
         <div>
+            <button onClick= {handleButton}>Добавить</button>
             <ActionBar />
             {track.map((element) => {
                     return (
@@ -20,6 +25,8 @@ export const Player = () => {
                         {element.artist}
                         </div>
                     )})}
+                     <audio controls
+                     src="file:///Users/nikitaslotin/Desktop/nikPlayer/assets/file1.mp3"/>
         </div>
     )
 }

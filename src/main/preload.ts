@@ -17,6 +17,15 @@ contextBridge.exposeInMainWorld('electron', {
     once(channel: Channels, func: (...args: unknown[]) => void) {
       ipcRenderer.once(channel, (_event, ...args) => func(...args));
     },
+    showHz() {
+      ipcRenderer.send('hz')
+    },
+    handleGetMusics(callback: (a:any) => void) {
+      console.log('подписались')
+      ipcRenderer.on('sendNewMusics', (_,data) => {
+        callback(data)
+      })
+    }
   },
 });
 

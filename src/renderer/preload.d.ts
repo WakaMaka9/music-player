@@ -10,6 +10,8 @@ declare global {
           func: (...args: unknown[]) => void
         ): (() => void) | undefined;
         once(channel: string, func: (...args: unknown[]) => void): void;
+        showHz() :void
+        handleGetMusics(cb:any): void;
       };
     };
   }
