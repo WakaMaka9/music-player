@@ -5,8 +5,12 @@ export type Track = {
     album?: string
     url: string
 }
-export type playlist = {
+export type Playlist = {
     id: number
     name: string
     tracks: Track[]
+}
+export type PlayedTrack = {
+    name: string
+    url: string
 }

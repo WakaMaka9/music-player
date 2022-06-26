@@ -1,11 +1,9 @@
 import { ipcMain, dialog } from "electron";
 import { readdir } from "fs";
-import util from 'util'
 import mm from 'music-metadata'
 import { mainWindow } from "./main";
 
 ipcMain.on('hz', async (a) => {
-    console.log('целкурион')
     try {
         const { filePaths } = await dialog.showOpenDialog({ properties: ['openDirectory'] })
         const targetDestination = filePaths[0] // 
@@ -23,8 +21,8 @@ ipcMain.on('hz', async (a) => {
                 musicItems.push({
                     url: filePath,
                     id: musicItems.length,
-                    name : metadata.common.title || '',
-                    artist: metadata.common.artist || '',
+                    artist: metadata.common.artist || 'Не известен',
+                    name : metadata.common.title || 'Без названия',
                 })
             }
             mainWindow?.webContents.send('sendNewMusics',musicItems)

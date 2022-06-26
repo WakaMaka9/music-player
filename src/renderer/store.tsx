@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
+import PlayerReduser from './store/PlayerReduser'
 import trackreduser from './store/trackreduser'
+
 
 export const store = configureStore({
     reducer: {
-        track: trackreduser
+        track: trackreduser,
+        playedTrack: PlayerReduser
     }
 })
 export type AppDispatch = typeof store.dispatch
