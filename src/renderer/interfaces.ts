@@ -13,4 +13,5 @@ export type Playlist = {
 export type PlayedTrack = {
     name: string
     url: string
+    id: number
 }

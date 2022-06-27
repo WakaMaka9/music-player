@@ -2,7 +2,7 @@ import React from "react"
 import { useDispatch } from "react-redux"
 import { Track } from "./interfaces"
 import { Router } from "./Router"
-import { addTrack, setTrack } from "./store/trackreduser"
+import { addTrack, setTrack } from "./store/TrackReducer"
 
 export const MainWrapper = () => {
     const dispatch = useDispatch()
